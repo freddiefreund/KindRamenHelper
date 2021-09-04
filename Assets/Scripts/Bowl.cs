@@ -16,18 +16,26 @@ public class Bowl : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         PlayerInteraction.onBowlFilledWithNoodles += FillWithNoodles;
         PlayerInteraction.onBowlFilledWithWater += FillWithWater;
+        PlayerInteraction.onBowlPickedUp += PickUp;
     }
 
     private void OnDisable()
     {
         PlayerInteraction.onBowlFilledWithNoodles -= FillWithNoodles;
         PlayerInteraction.onBowlFilledWithWater -= FillWithWater;
+        PlayerInteraction.onBowlPickedUp -= PickUp;
+    }
+
+    private void PickUp()
+    {
+        Destroy(gameObject);
     }
 
     private void FillWithWater()
     {
         hasWater = true;
         Debug.Log("Bowl is filled with water");
+        spriteRenderer.sprite = sprites[2];
     }
 
     private void FillWithNoodles()

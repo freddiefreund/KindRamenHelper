@@ -15,6 +15,7 @@ public class CarryItemIcons : MonoBehaviour
         PlayerInteraction.onKettlePickedUp += OnKettlePickedUp;
         PlayerInteraction.onNoodlesPickedUp += OnNoodlesPickUp;
         PlayerInteraction.onBowlFilledWithNoodles += OnNoodlesDrop;
+        PlayerInteraction.onPutEmptyKettleOnStation += OnKettleDrop;
         
         bowlImage.SetActive(false);
         noodleImage.SetActive(false);
@@ -26,6 +27,12 @@ public class CarryItemIcons : MonoBehaviour
         PlayerInteraction.onBowlPickedUp -= OnBowlPickedUp;
         PlayerInteraction.onKettlePickedUp -= OnKettlePickedUp;
         PlayerInteraction.onNoodlesPickedUp -= OnNoodlesPickUp;
+        PlayerInteraction.onPutEmptyKettleOnStation -= OnKettleDrop;
+    }
+
+    private void OnKettleDrop()
+    {
+        kettleImage.SetActive(false);
     }
 
     private void OnNoodlesPickUp()

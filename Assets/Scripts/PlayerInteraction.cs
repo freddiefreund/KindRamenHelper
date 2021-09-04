@@ -28,10 +28,14 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private Bowl bowl;
     [SerializeField] private Interaction currentInteraction;
     [SerializeField] private CarryItem currentCarryItem;
+    [SerializeField] private GameObject WinScreen;
+    [SerializeField] private AudioClip slurp;
     private bool tableIsNear;
+    private AudioSource source;
     public static Action onKettlePickedUp;
     public static Action onKettleFill;
     public static Action onKettleStart;
+    public static Action onPutEmptyKettleOnStation;
     public static Action onBowlPickedUp;
     public static Action onBowlFilledWithWater;
     public static Action onBowlFilledWithNoodles;
@@ -40,6 +44,7 @@ public class PlayerInteraction : MonoBehaviour
     private void Start()
     {
         currentInteraction = Interaction.None;
+        source = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -55,6 +60,10 @@ public class PlayerInteraction : MonoBehaviour
                 currentInteraction = Interaction.Bowl;    
             }
             else if (currentCarryItem == CarryItem.Kettle && kettle.isBoiled)
+            {
+                currentInteraction = Interaction.Bowl;
+            }
+            else if (bowl.hasNoodles && bowl.hasWater)
             {
                 currentInteraction = Interaction.Bowl;
             }
@@ -75,6 +84,16 @@ public class PlayerInteraction : MonoBehaviour
             if (currentCarryItem == CarryItem.Kettle)
             {
                 currentInteraction = Interaction.Sink;
+            }
+        }
+        else if (other.gameObject.CompareTag("Finish"))
+        {
+            if (currentCarryItem == CarryItem.Bowl)
+            {
+                Debug.Log("You won!");
+                WinScreen.SetActive(true);
+                source.clip = slurp;
+                source.Play();
             }
         }
 
@@ -122,10 +141,18 @@ public class PlayerInteraction : MonoBehaviour
                 onKettleFill?.Invoke();
                 currentCarryItem = CarryItem.None;
             } 
-            else if (currentInteraction == Interaction.KettleStation && kettle.isFull)
+            else if (currentInteraction == Interaction.KettleStation)
             {
-                onKettleStart?.Invoke();
-                currentCarryItem = CarryItem.None;
+                if (kettle.isFull)
+                {
+                    onKettleStart?.Invoke();
+                    currentCarryItem = CarryItem.None;    
+                }
+                else
+                {
+                    onPutEmptyKettleOnStation?.Invoke();
+                    currentCarryItem = CarryItem.None;
+                }
             }
             else if (currentInteraction == Interaction.Bowl && kettle.isBoiled)
             {
