@@ -75,9 +75,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.5754717, g: 0.1981577, b: 0.1981577, a: 1}
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 21300000, guid: 2a61ec90694e32e4194f7c161e358f0c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -106,6 +106,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f0938dbdf5480384f9249d23a8b1698e, type: 3}
   - {fileID: 8300000, guid: 33f9374b631d44f43b29cd1059083d0c, type: 3}
   - {fileID: 8300000, guid: fa37c1bc19ada0942b5e46c86000a28a, type: 3}
+  sprites:
+  - {fileID: 21300000, guid: e561a8c51a41e45478d344d1d9ebdfce, type: 3}
+  - {fileID: 21300000, guid: 2a61ec90694e32e4194f7c161e358f0c, type: 3}
+  - {fileID: 21300000, guid: 4353dd434c19df144b9f5f6685f6457d, type: 3}
+  - {fileID: 21300000, guid: c281c28fce2df1448b381ba858973b3d, type: 3}
   speed: 2
   footstepDelay: 0.4
 --- !u!58 &2070780368271647408

@@ -8,15 +8,18 @@ using Random = UnityEngine.Random;
 public class TestMovement : MonoBehaviour
 {
     [SerializeField] AudioClip[] footsteps;
+    [SerializeField] Sprite[] sprites;
     [SerializeField] private float speed;
     [SerializeField] float footstepDelay = 0.4f;
     
     private Vector3 movingDirection;
     float timeStamp;
     AudioSource source;
+    SpriteRenderer spriterenderer;
     
     private void Start()
     {
+        spriterenderer = GetComponent<SpriteRenderer>();
         timeStamp = Time.time;
         source = GetComponent<AudioSource>();
         source.clip = footsteps[0];
@@ -25,21 +28,25 @@ public class TestMovement : MonoBehaviour
 
     public void MoveRight()
     {
+        spriterenderer.sprite = sprites[2];
         movingDirection = Vector3.right;
     }
 
     public void MoveLeft()
     {
+        spriterenderer.sprite = sprites[3];
         movingDirection = Vector3.left;
     }
 
     public void MoveUp()
     {
+        spriterenderer.sprite = sprites[0];
         movingDirection = Vector3.up;
     }
 
     public void MoveDown()
     {
+        spriterenderer.sprite = sprites[1];
         movingDirection = Vector3.down;
     }
 
