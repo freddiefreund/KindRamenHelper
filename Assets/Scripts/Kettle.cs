@@ -7,8 +7,8 @@ public class Kettle : MonoBehaviour
 {
     [SerializeField] Transform kettleBase;
     [SerializeField] Transform sink;
-    float boilTime = 13f;
-    float fillTime = 5f;
+    [SerializeField] float boilTime = 13f;
+    [SerializeField] float fillTime = 5f;
     
     public bool isFull = false;
     public bool isBoiled = false;

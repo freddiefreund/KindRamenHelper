@@ -241,7 +241,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 186886570}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.64, y: 1.5, z: 0}
+  m_LocalPosition: {x: -2.658, y: 1.542, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -582,6 +582,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   kettleBase: {fileID: 9123897922334082574}
   sink: {fileID: 1664293695}
+  boilTime: 13
+  fillTime: 5
   isFull: 0
   isBoiled: 0
 --- !u!1001 &7234229041418965587
