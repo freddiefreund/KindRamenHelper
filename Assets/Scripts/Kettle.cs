@@ -10,11 +10,14 @@ public class Kettle : MonoBehaviour
     [SerializeField] float boilTime = 13f;
     [SerializeField] float fillTime = 5f;
     
-    public bool isFull = false;
-    public bool isBoiled = false;
+    [HideInInspector] public bool isFull = false;
+    [HideInInspector] public bool isBoiled = false;
+
+    AudioSource source;
 
     void OnEnable()
     {
+        source = GetComponent<AudioSource>();
         playerstuff.onKettleStart += Boil;
         playerstuff.onKettleFill += Fill;
     }
@@ -50,7 +53,11 @@ public class Kettle : MonoBehaviour
     
     IEnumerator BoilWater()
     {
+        source.Play();
+        Debug.Log("boiling");
+        
         yield return new WaitForSeconds(boilTime);
+        source.Stop();
         isBoiled = true;
         Debug.Log("boiled");
     }
