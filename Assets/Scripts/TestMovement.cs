@@ -7,7 +7,6 @@ using UnityEngine;
 public class TestMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
-    [SerializeField] private InteractionButtonTweener interactionButtonTweener;
     private Vector3 movingDirection;
     private void Start()
     {
@@ -42,17 +41,5 @@ public class TestMovement : MonoBehaviour
     private void Update()
     {
         transform.position += movingDirection * speed * Time.deltaTime;
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        Debug.Log("I can interact");
-        interactionButtonTweener.TweenIn();
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        interactionButtonTweener.TweenOut();
-        Debug.Log("I cannot interact");
     }
 }
