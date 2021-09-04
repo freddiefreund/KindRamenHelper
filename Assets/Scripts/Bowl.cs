@@ -8,8 +8,12 @@ public class Bowl : MonoBehaviour
     public bool hasNoodles;
     public bool hasWater;
 
+    SpriteRenderer spriteRenderer;
+    [SerializeField] Sprite[] sprites;
+    
     private void OnEnable()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         PlayerInteraction.onBowlFilledWithNoodles += FillWithNoodles;
         PlayerInteraction.onBowlFilledWithWater += FillWithWater;
     }
@@ -30,16 +34,19 @@ public class Bowl : MonoBehaviour
     {
         hasNoodles = true;
         Debug.Log("Bowl is filled with noodles");
+        spriteRenderer.sprite = sprites[1];
+        //StartCoroutine(Smoke());
     }
 
-    void Start()
+    IEnumerator Smoke()
     {
-        
+        yield return new WaitForSeconds(2f);
+        spriteRenderer.sprite = sprites[2];
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+            FillWithNoodles();
     }
 }
