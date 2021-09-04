@@ -107,6 +107,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 33f9374b631d44f43b29cd1059083d0c, type: 3}
   - {fileID: 8300000, guid: fa37c1bc19ada0942b5e46c86000a28a, type: 3}
   speed: 2
+  footstepDelay: 0.4
 --- !u!58 &2070780368271647408
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -253,3 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionButtonTweener: {fileID: 0}
+  kettle: {fileID: 0}
+  bowl: {fileID: 0}
+  currentInteraction: 0
+  currentCarryItem: 0
