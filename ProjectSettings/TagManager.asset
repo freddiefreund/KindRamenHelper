@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Table
+  - Kettle
+  - Bowl
+  - KettleStation
+  - Sink
+  - Noodles
   layers:
   - Default
   - TransparentFX
