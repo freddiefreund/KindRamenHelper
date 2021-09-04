@@ -70,6 +70,13 @@ public class PlayerInteraction : MonoBehaviour
         {
             currentInteraction = Interaction.Noodles;
         }
+        else if (other.gameObject.CompareTag("Sink"))
+        {
+            if (currentCarryItem == CarryItem.Kettle)
+            {
+                currentInteraction = Interaction.Sink;
+            }
+        }
 
         if (currentInteraction != Interaction.None)
         {
