@@ -1916,9 +1916,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1088991536}
     - target: {fileID: 141662359, guid: a1b8a55bf5f805248ae30cfdf3d00ce0, type: 3}
+      propertyPath: slurp
+      value: 
+      objectReference: {fileID: 8300000, guid: 22f8bd2ea25e19049a00b2093441e466, type: 3}
+    - target: {fileID: 141662359, guid: a1b8a55bf5f805248ae30cfdf3d00ce0, type: 3}
       propertyPath: kettle
       value: 
       objectReference: {fileID: 282233953}
+    - target: {fileID: 141662359, guid: a1b8a55bf5f805248ae30cfdf3d00ce0, type: 3}
+      propertyPath: WinScreen
+      value: 
+      objectReference: {fileID: 2075412320}
     - target: {fileID: 141662359, guid: a1b8a55bf5f805248ae30cfdf3d00ce0, type: 3}
       propertyPath: interactionButtonTweener
       value: 
